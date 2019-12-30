@@ -1,9 +1,11 @@
 package withKotlinTest
 
+import io.kotlintest.data.forall
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.AnnotationSpec
 import io.kotlintest.specs.DescribeSpec
 import io.kotlintest.specs.StringSpec
+import io.kotlintest.tables.row
 import underTest.StringCalc
 
 class StringCalcKTTests : AnnotationSpec(){
@@ -24,6 +26,20 @@ class StringCalcKTTests2 : StringSpec({
         val result = sc.add("")
 
         result.shouldBe(0)
+    }
+
+    "add with single number returns that number" {
+        forall(
+            row("1", 1),
+            row("2", 2)
+        ){ input:String,expected:Int ->
+
+            val sc = StringCalc()
+
+            val result = sc.add(input)
+
+            result.shouldBe(expected)
+        }
     }
 })
 

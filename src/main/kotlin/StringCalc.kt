@@ -2,7 +2,10 @@ package underTest
 
 class StringCalc {
     fun add(numbers: String): Int {
-        return 0
+        if (numbers.isEmpty()){
+            return 0
+        }
+        return Integer.parseInt(numbers)
     }
 
 }
