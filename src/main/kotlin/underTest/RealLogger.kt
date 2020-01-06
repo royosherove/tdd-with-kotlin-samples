@@ -1,12 +1,9 @@
 package underTest
 
-interface MyLogger {
-    fun write(text:String)
-}
+import underTest.interfaces.MyLogger
 
-class RealLogger:MyLogger{
+class RealLogger: MyLogger {
     override fun write(text: String) {
         TODO("not implemented")
     }
 }
-

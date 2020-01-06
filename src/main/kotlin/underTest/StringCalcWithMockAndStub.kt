@@ -1,6 +1,9 @@
 package underTest
 
-class StringCalcWithMock (val logger:MyLogger) {
+import underTest.interfaces.MyLogger
+import underTest.interfaces.MyService
+
+class StringCalcWithMockAndStub (val logger: MyLogger, val service: MyService) {
      fun add(numbers: String): Int {
         if (numbers.isEmpty()){
             logger.write("0")
