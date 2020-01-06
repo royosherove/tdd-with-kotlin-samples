@@ -11,7 +11,7 @@ import underTest.interfaces.MyService
 
 class StringCalcWithMockAndStubTests {
     inline fun <reified T:Any> fake(): T {
-        return mockk<T>(relaxed = true)
+        return mockk<T>(relaxed = true, relaxUnitFun = true)
     }
 
     fun makeCalc(logger: MyLogger = fake(),

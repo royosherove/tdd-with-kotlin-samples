@@ -1,47 +1,55 @@
-//package withJunit5.manualFakes
-//import org.assertj.core.api.Assertions.*
-//import org.junit.jupiter.api.Assertions.assertEquals
-//import org.junit.jupiter.api.Test
-//import underTest.StringCalcWithStatics
-//
-//class TestableStringCalcWithStatics:StringCalcWithStatics(){
-//    var writtenTo ="";
-//    override fun callLogger(text:String) {
-//        writtenTo = text
-//
-//    }
-//
-//}
-//
-//class StringCalcWithStaticsTests {
-//    fun makeCalc(): TestableStringCalcWithStatics {
-//        return TestableStringCalcWithStatics()
-//    }
-//
-//    @Test
-//    fun `adding a number calls the logger`(){
-//        val sc = makeCalc()
-//
-//        sc.add("")
-//
-//        assertThat(sc.writtenTo).contains("0")
-//    }
-//
-//    @Test
-//    fun `Add with empty string returns default`(){
-//        val sc = makeCalc()
-//
-//        val result = sc.add("")
-//
-//        assertEquals(0,result)
-//    }
-//
-//    @Test
-//    fun `with single number returns that number`(){
-//        val sc = makeCalc()
-//
-//        val result = sc.add("1")
-//
-//        assertEquals(1, result)
-//    }
-//}
+package withJunit5.dynamicFakes
+import io.mockk.*
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
+import underTest.StaticLogger
+import underTest.StringCalcWithStatics
+import java.lang.Exception
+
+class StringCalcWithStaticsTests {
+    object Helpers{
+        fun makeCalc(): StringCalcWithStatics {
+            return StringCalcWithStatics()
+        }
+
+        fun fakeStaticLogger() {
+            mockkObject(StaticLogger.Instance)
+            every { StaticLogger.Instance.write(any()) } just Runs
+        }
+    }
+
+    @AfterEach
+    fun `teardown`(){
+        unmockkAll()
+    }
+
+    @Test
+    fun `EXTENSION FUNCTIONS adding a number calls the logger`(){
+        Helpers.fakeStaticLogger()
+        val sc = Helpers.makeCalc()
+        sc.add("")
+
+        verify { StaticLogger.Instance.write("0") }
+    }
+
+
+    @Test
+    fun `Add with empty string returns default`(){
+        Helpers.fakeStaticLogger()
+        val sc = Helpers.makeCalc()
+
+        val result = sc.add("")
+
+        assertEquals(0,result)
+    }
+
+    @Test
+    fun `with single number returns that number`(){
+        val sc = Helpers.makeCalc()
+
+        val result = sc.add("1")
+
+        assertEquals(1, result)
+    }
+}
