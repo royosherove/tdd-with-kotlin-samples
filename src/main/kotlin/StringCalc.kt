@@ -1,7 +1,7 @@
 package underTest
 
 class StringCalc {
-    fun add(numbers: String): Int {
+     fun add(numbers: String): Int {
         if (numbers.isEmpty()){
             return 0
         }
