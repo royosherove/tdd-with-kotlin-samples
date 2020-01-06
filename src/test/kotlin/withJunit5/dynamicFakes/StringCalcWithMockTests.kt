@@ -1,30 +1,25 @@
-package withJunit5
-import org.assertj.core.api.Assertions.assertThat
+package withJunit5.dynamicFakes
+import io.mockk.mockk
+import io.mockk.verify
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 import underTest.interfaces.MyLogger
 import underTest.StringCalcWithMock
 
-class FakeLogger: MyLogger {
-    var written = ""
-    override fun write(text: String) {
-        written = text
-    }
-
-}
 class StringCalcWithMockTests {
-    fun makeCalc(logger: MyLogger = FakeLogger()): StringCalcWithMock {
+    fun makeCalc(logger: MyLogger = mockk(relaxed = true)): StringCalcWithMock {
         return StringCalcWithMock(logger)
     }
 
     @Test
     fun `calling add invokes the logger`(){
-        val mockLog = FakeLogger()
+        val mockLog = mockk<MyLogger>(relaxed = true)
         val sc = makeCalc(mockLog)
         sc.add("")
 
-        assertThat(mockLog.written).contains("0")
+        verify { mockLog.write("0")}
     }
+
     @Test
     fun `Add with empty string returns default`(){
         val sc = makeCalc()

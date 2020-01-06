@@ -1,4 +1,4 @@
-package withJunit5.mocksAndStubs
+package withJunit5.manualFakes.mockAndStub
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -29,7 +29,8 @@ class FakeService: MyService{
 
 class StringCalcWithMockAndStubTests {
     fun makeCalc(logger: MyLogger = FakeLogger(),
-                 service: MyService = FakeService()): StringCalcWithMockAndStub {
+                 service: MyService = FakeService()
+    ): StringCalcWithMockAndStub {
         return StringCalcWithMockAndStub(logger, service)
     }
 

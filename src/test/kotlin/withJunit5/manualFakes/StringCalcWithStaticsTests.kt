@@ -1,4 +1,4 @@
-package withJunit5
+package withJunit5.manualFakes
 import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -14,7 +14,7 @@ class TestableStringCalcWithStatics:StringCalcWithStatics(){
 }
 
 class StringCalcWithStaticsTests {
-    fun makeCalc(): TestableStringCalcWithStatics  {
+    fun makeCalc(): TestableStringCalcWithStatics {
         return TestableStringCalcWithStatics()
     }
 

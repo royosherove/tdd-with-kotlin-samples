@@ -1,4 +1,4 @@
-package withJunit5
+package withJunit5.manualFakes
 import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -14,11 +14,11 @@ class TestableStringCalcWithTime(val currentDayWillBe: Int) : StringCalcWithTime
 }
 
 class StringCalcWithTimeTests {
-    fun makeCalc(day:Int): TestableStringCalcWithTime{
+    fun makeCalc(day:Int): TestableStringCalcWithTime {
         return TestableStringCalcWithTime(day)
     }
 
-    fun makeEnabledCalc(): TestableStringCalcWithTime{
+    fun makeEnabledCalc(): TestableStringCalcWithTime {
         return makeCalc(Calendar.MONDAY)
     }
 
