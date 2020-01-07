@@ -9,7 +9,7 @@ open class StringCalcWithStatics {
         return Integer.parseInt(numbers)
     }
 
-    protected open fun callLogger(text:String) {
+    internal open fun callLogger(text:String) {
         StaticLogger.Instance.write(text)
     }
 
