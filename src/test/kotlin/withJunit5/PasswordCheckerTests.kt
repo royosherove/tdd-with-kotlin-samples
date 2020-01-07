@@ -2,6 +2,8 @@ package withJunit5
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
 import underTest.passwordCheckerKata.RuleChecker
 
 class PasswordCheckerTests {
@@ -38,4 +40,40 @@ class PasswordCheckerTests {
 
         assertThat(result).isFalse()
     }
+}
+
+class PassRule_MinLengthTests{
+    @Test
+    fun `when under min size, returns false`(){
+        val rule = RuleChecker.Rules.minLengthRule
+        val result = rule("123456")
+        assertThat(result).isFalse()
+    }
+
+   @Test
+   fun `when over min size, returns true`(){
+       val rule = RuleChecker.Rules.minLengthRule
+       val result = rule("1234567")
+       assertThat(result).isTrue()
+   }
+}
+class PassRule_NumberRequired{
+    @Test
+    fun `when does not contain number, fails`(){
+        val rule = RuleChecker.Rules.numberRequired
+        val result = rule("abc")
+        assertThat(result).isFalse()
+    }
+
+   @ParameterizedTest
+   @CsvSource(
+       "abc1",
+       "1abc",
+       "a1bc"
+   )
+   fun `when has number, passes`(input:String){
+       val rule = RuleChecker.Rules.numberRequired
+       val result = rule(input)
+       assertThat(result).isTrue()
+   }
 }
