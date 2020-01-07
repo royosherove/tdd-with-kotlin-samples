@@ -1,6 +1,8 @@
 package withJunit5
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
 import underTest.StringCalc
 
 class StringCalcTests {
@@ -19,5 +21,17 @@ class StringCalcTests {
         val sc = makeCalc()
         val result = sc.add("1")
         assertEquals(1, result)
+    }
+
+    @ParameterizedTest
+    @CsvSource(
+        "1,1",
+        "2,2",
+        "10,10"
+    )
+    fun `with parameters`(input:String, expected:Int){
+        val sc = makeCalc()
+        val result = sc.add(input)
+        assertEquals(expected, result)
     }
 }
