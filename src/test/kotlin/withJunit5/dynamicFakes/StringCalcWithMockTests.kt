@@ -3,8 +3,8 @@ import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
-import underTest.interfaces.MyLogger
-import underTest.StringCalcWithMock
+import underTest.stringCalculatorKata.interfaces.MyLogger
+import underTest.stringCalculatorKata.StringCalcWithMock
 
 class StringCalcWithMockTests {
     fun makeCalc(logger: MyLogger = mockk(relaxed = true)): StringCalcWithMock {

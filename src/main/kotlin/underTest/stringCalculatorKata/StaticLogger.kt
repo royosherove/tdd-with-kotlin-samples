@@ -1,4 +1,4 @@
-package underTest
+package underTest.stringCalculatorKata
 
 class StaticLogger {
     object Instance

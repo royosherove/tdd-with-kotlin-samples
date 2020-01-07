@@ -2,9 +2,9 @@ package withJunit5.manualFakes
 import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import underTest.StringCalcWithStatics
+import underTest.extractAndOverride.StringCalcWithStatics
 
-class TestableStringCalcWithStatics:StringCalcWithStatics(){
+class TestableStringCalcWithStatics: StringCalcWithStatics(){
     var writtenTo ="";
     override fun callLogger(text:String) {
         writtenTo = text

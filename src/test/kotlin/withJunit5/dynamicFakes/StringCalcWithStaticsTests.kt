@@ -3,9 +3,8 @@ import io.mockk.*
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import underTest.StaticLogger
-import underTest.StringCalcWithStatics
-import java.lang.Exception
+import underTest.stringCalculatorKata.StaticLogger
+import underTest.extractAndOverride.StringCalcWithStatics
 
 class StringCalcWithStaticsTests {
     object Helpers{

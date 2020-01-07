@@ -2,9 +2,9 @@ package withJunit5.manualFakes.mockAndStub
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import underTest.StringCalcWithMockAndStub
-import underTest.interfaces.MyLogger
-import underTest.interfaces.MyService
+import underTest.stringCalculatorKata.StringCalcWithMockAndStub
+import underTest.stringCalculatorKata.interfaces.MyLogger
+import underTest.stringCalculatorKata.interfaces.MyService
 
 class FakeLogger: MyLogger {
     lateinit var toThrow: Exception

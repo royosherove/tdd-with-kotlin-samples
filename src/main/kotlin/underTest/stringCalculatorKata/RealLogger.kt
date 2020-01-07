@@ -1,6 +1,6 @@
-package underTest
+package underTest.stringCalculatorKata
 
-import underTest.interfaces.MyLogger
+import underTest.stringCalculatorKata.interfaces.MyLogger
 
 class RealLogger: MyLogger {
     override fun write(text: String) {

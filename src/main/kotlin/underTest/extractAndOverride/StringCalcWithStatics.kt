@@ -1,4 +1,6 @@
-package underTest
+package underTest.extractAndOverride
+
+import underTest.stringCalculatorKata.StaticLogger
 
 open class StringCalcWithStatics {
      fun add(numbers: String): Int {

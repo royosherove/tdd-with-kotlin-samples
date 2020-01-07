@@ -3,7 +3,7 @@ import io.mockk.*
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import underTest.StringCalcWithStatics
+import underTest.extractAndOverride.StringCalcWithStatics
 
 class ExtractAndOverrideWitmockkTests {
     object Helpers{

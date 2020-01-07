@@ -1,6 +1,6 @@
-package underTest
+package underTest.stringCalculatorKata
 
-import underTest.interfaces.MyLogger
+import underTest.stringCalculatorKata.interfaces.MyLogger
 
 class StringCalcWithMock (val logger: MyLogger) {
      fun add(numbers: String): Int {

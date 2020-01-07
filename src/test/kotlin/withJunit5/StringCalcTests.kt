@@ -3,10 +3,11 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
-import underTest.StringCalc
+import underTest.stringCalculatorKata.StringCalc
 
 class StringCalcTests {
-    fun makeCalc(): StringCalc {return StringCalc()}
+    fun makeCalc(): StringCalc {return StringCalc()
+    }
 
     @Test
     fun `Add with empty string returns default`(){

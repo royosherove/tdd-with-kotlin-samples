@@ -1,4 +1,4 @@
-package underTest
+package underTest.stringCalculatorKata
 
 class StringCalc {
      fun add(numbers: String): Int {

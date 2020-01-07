@@ -1,7 +1,7 @@
-package underTest
+package underTest.stringCalculatorKata
 
-import underTest.interfaces.MyLogger
-import underTest.interfaces.MyService
+import underTest.stringCalculatorKata.interfaces.MyLogger
+import underTest.stringCalculatorKata.interfaces.MyService
 import java.lang.Exception
 
 class StringCalcWithMockAndStub (val logger: MyLogger, val service: MyService) {

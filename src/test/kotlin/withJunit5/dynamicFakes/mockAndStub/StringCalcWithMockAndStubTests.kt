@@ -4,9 +4,9 @@ import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import underTest.StringCalcWithMockAndStub
-import underTest.interfaces.MyLogger
-import underTest.interfaces.MyService
+import underTest.stringCalculatorKata.StringCalcWithMockAndStub
+import underTest.stringCalculatorKata.interfaces.MyLogger
+import underTest.stringCalculatorKata.interfaces.MyService
 
 
 class StringCalcWithMockAndStubTests {

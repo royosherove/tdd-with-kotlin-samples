@@ -6,7 +6,7 @@ import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import underTest.StringCalcWithTime
+import underTest.extractAndOverride.StringCalcWithTime
 import java.util.*
 
 

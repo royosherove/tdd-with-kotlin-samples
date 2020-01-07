@@ -6,7 +6,7 @@ import io.kotlintest.specs.AnnotationSpec
 import io.kotlintest.specs.DescribeSpec
 import io.kotlintest.specs.StringSpec
 import io.kotlintest.tables.row
-import underTest.StringCalc
+import underTest.stringCalculatorKata.StringCalc
 
 class StringCalcKTTests : AnnotationSpec(){
     @Test

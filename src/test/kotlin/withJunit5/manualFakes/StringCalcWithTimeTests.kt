@@ -2,7 +2,7 @@ package withJunit5.manualFakes
 import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import underTest.StringCalcWithTime
+import underTest.extractAndOverride.StringCalcWithTime
 import java.util.*
 
 class TestableStringCalcWithTime(val currentDayWillBe: Int) : StringCalcWithTime(){

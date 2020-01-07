@@ -2,8 +2,8 @@ package withJunit5.manualFakes.mocks
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
-import underTest.interfaces.MyLogger
-import underTest.StringCalcWithMock
+import underTest.stringCalculatorKata.interfaces.MyLogger
+import underTest.stringCalculatorKata.StringCalcWithMock
 
 class FakeLogger: MyLogger {
     var written = ""
