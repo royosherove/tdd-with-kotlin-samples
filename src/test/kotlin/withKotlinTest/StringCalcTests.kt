@@ -9,6 +9,7 @@ import io.kotlintest.tables.row
 import underTest.stringCalculatorKata.StringCalc
 
 class StringCalcKTTests : AnnotationSpec(){
+
     @Test
     fun `add with empty string returns default`(){
         val sc = StringCalc()
@@ -56,3 +57,5 @@ class StringCalcKTTests3: DescribeSpec({
         }
     }
 })
+
+

@@ -5,7 +5,11 @@ class StringCalc {
         if (numbers.isEmpty()){
             return 0
         }
-        return Integer.parseInt(numbers)
+         val parsed = Integer.parseInt(numbers)
+         if (parsed < 0) {
+             throw Exception("negatives not allowed")
+         }
+         return parsed
     }
 
 }

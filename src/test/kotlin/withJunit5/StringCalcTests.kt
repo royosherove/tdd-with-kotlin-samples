@@ -1,11 +1,14 @@
 package withJunit5
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 import underTest.stringCalculatorKata.StringCalc
 
 class StringCalcTests {
+
     fun makeCalc(): StringCalc {return StringCalc()
     }
 
@@ -17,6 +20,16 @@ class StringCalcTests {
 
         assertEquals(0,result)
     }
+
+    @Test
+    fun `Add with negative number, throws`(){
+        val sc = makeCalc()
+        val ex = assertThrows<Exception>(){
+            sc.add("-1")
+        }
+        assertThat(ex.message).matches { it.contains("negatives not allowed")}
+    }
+
     @Test
     fun `with single number returns that number`(){
         val sc = makeCalc()
