@@ -1,12 +1,16 @@
 package withKotlinTest
 
+import io.kotlintest.be
 import io.kotlintest.data.forall
-import io.kotlintest.shouldBe
+import io.kotlintest.matchers.haveSubstring
+import io.kotlintest.should
+import io.kotlintest.shouldThrow
 import io.kotlintest.specs.AnnotationSpec
 import io.kotlintest.specs.DescribeSpec
 import io.kotlintest.specs.StringSpec
 import io.kotlintest.tables.row
 import underTest.stringCalculatorKata.StringCalc
+import java.lang.Exception
 
 class StringCalcKTTests : AnnotationSpec(){
 
@@ -16,7 +20,7 @@ class StringCalcKTTests : AnnotationSpec(){
 
         val result = sc.add("")
 
-        result.shouldBe(0)
+        result should be(0)
     }
 }
 
@@ -26,7 +30,14 @@ class StringCalcKTTests2 : StringSpec({
 
         val result = sc.add("")
 
-        result.shouldBe(0)
+        result should be(0)
+    }
+
+    "add with negative, throws" {
+       val sc = StringCalc()
+
+        val ex = shouldThrow<Exception> { sc.add("-1")  }
+        ex.message should haveSubstring("negatives not allowed")
     }
 
     "add with single number returns that number" {
@@ -39,7 +50,7 @@ class StringCalcKTTests2 : StringSpec({
 
             val result = sc.add(input)
 
-            result.shouldBe(expected)
+            result should be(expected)
         }
     }
 })
@@ -51,8 +62,8 @@ class StringCalcKTTests3: DescribeSpec({
 
             val result = sc.add("")
 
-            it("returns the dfault value"){
-                result.shouldBe(0)
+            it("returns the default value"){
+                result should be(0)
             }
         }
     }
