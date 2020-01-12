@@ -12,6 +12,15 @@ import java.util.*
 
 class AddFnTests {
     @Test
+    fun `addition on MONDAY with single number, returns that number `(){
+        val addFn = configureAdd(getDayFn = fun(): Int {
+            return Calendar.SUNDAY
+        })
+        val result = addFn("1")
+        assertEquals(1,result)
+    }
+
+    @Test
     fun `addition on SUNDAY throws `(){
         val addFn = configureAdd() { Calendar.SUNDAY}
         assertThrows<Exception> { addFn("1") }
