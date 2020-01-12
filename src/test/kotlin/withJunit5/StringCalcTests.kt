@@ -51,4 +51,16 @@ class StringCalcTests {
         val result = sc.add(input)
         assertEquals(expected, result)
     }
+
+    @Test
+    fun `with parameters mixed with kotlin-test forall`(){ forall(
+        row("1",1),
+        row("2",2),
+        row("10",10)
+        ){input:String, expected:Int ->
+            val sc = makeCalc()
+            val result = sc.add(input)
+            assertEquals(expected, result)
+        }
+    }
 }

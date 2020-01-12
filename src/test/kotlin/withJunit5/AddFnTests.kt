@@ -14,7 +14,7 @@ class AddFnTests {
     @Test
     fun `addition on MONDAY with single number, returns that number `(){
         val addFn = configureAdd(getDayFn = fun(): Int {
-            return Calendar.SUNDAY
+            return Calendar.MONDAY
         })
         val result = addFn("1")
         assertEquals(1,result)
