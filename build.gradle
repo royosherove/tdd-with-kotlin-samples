@@ -31,12 +31,13 @@ dependencies {
             "org.junit.jupiter:junit-jupiter-api:5.5.2",
             "org.junit.jupiter:junit-jupiter-params:5.5.2"
 
-    //assertj
-    testImplementation "org.assertj:assertj-core:3.14.0"
-
     //Kotlin-Test
     testImplementation "io.kotlintest:kotlintest-assertions:3.4.1",
             "io.kotlintest:kotlintest-runner-junit5:3.4.1"
+
+    //assertj
+    testImplementation "org.assertj:assertj-core:3.14.0"
+
 
     //mockk
     testImplementation "io.mockk:mockk:1.9.3.kotlin12"

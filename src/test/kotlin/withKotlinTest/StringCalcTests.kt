@@ -33,6 +33,12 @@ class StringCalcKTTests2 : StringSpec({
         result should be(0)
     }
 
+    "using it with lamdas" {
+        "abcd".split(',').forEach {
+            println(it + "a")
+        }
+    }
+
     "add with negative, throws" {
        val sc = StringCalc()
 

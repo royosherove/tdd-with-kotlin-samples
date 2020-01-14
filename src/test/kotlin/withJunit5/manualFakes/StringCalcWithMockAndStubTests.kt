@@ -7,11 +7,13 @@ import underTest.stringCalculatorKata.interfaces.MyLogger
 import underTest.stringCalculatorKata.interfaces.MyService
 
 class FakeLogger: MyLogger {
-    lateinit var toThrow: Exception
+    var toThrow: Exception? = null
     var written = ""
     override fun write(text: String) {
         written = text
-        throw toThrow
+        if (toThrow != null) {
+            throw toThrow!!
+        }
     }
 
     fun willThrow(exception: Exception) {
@@ -29,8 +31,8 @@ class FakeService: MyService{
 
 class StringCalcWithMockAndStubTests {
     fun makeCalc(logger: MyLogger = FakeLogger(),
-                 service: MyService = FakeService()
-    ): StringCalcWithMockAndStub {
+                 service: MyService = FakeService() ): StringCalcWithMockAndStub {
+
         return StringCalcWithMockAndStub(logger, service)
     }
 
